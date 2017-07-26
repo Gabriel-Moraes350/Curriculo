@@ -246,7 +246,7 @@
 		
 		
 		//Send the email!
-		$success = mail($to,$email_subject,$email_body,$headers);
+		mail($to,$email_subject,$email_body,$headers);
 
 		//done. redirect to thank-you page.
 		
