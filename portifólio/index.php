@@ -2,8 +2,11 @@
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
-	<title>Portifólio</title>
+	<title>Gabriel Moraes Portfolio</title>
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width"/>
+	<meta name="description" content="Meu primeiro site com o intuito de aprendizado e testar novas habilidades">
+	<meta name="keywords" content="gabriel,moraes,portfolio,primeiro,aprendizado,portifólio,000,web,host">
+	<link href="img/favicon.ico" rel="icon" type="image/x-icon" />
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"> 
 	<link href="https://fonts.googleapis.com/css?family=Slabo+27px|Space+Mono" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -107,11 +110,12 @@
 						<div id="fundo_contato">
 							<h2>Contato</h2>
 							<div class="form" >
-								<form  name="form_mail" action="" method="POST">
+								<form  id="form_contato" name="formail" action="" method="POST">
+									<div id="thanks"></div>
 									<p><input type="text" name="nome" id="nome" placeholder="Nome" maxlength="50"><br><h4 id="valNome"></h4></p>
 									<p><input type="email" name="email" id="email"  placeholder="Email" maxlength="50" autocomplete="on"><br><h4 id="valEmail"></h4></p>
 									<p><textarea  placeholder="Mensagem" maxlength="500" id="textArea" name="message"></textarea><br><h4 id="valText"></h4></p>
-									<p><button type="submit" name="send" id="enviar" value="Enviar">Enviar <span class="fa fa-arrow-right" aria-hidden="true"></span></button></p>
+									<p><button type="submit"  name="send" id="enviar" value="Enviar">Enviar <span class="fa fa-arrow-right" aria-hidden="true"></span></button></p>
 								</form>
 							</div>
 						</div>
@@ -154,11 +158,11 @@
 					var email = $("#email").val();
 					if (validateEmail(email)) {
 						$("#valEmail").html( " Email válido :)");
-						$("#valEmail").css({"color": "#102311",'font-size': '20px'});
+						$("#valEmail").css({"color": "#03ad0e",'font-size': '1em'});
 						emailVal = true;
 					} else {
 						$("#valEmail").html("\""+email+"\"  não é válido :( <br> Digite um email válido");
-						$("#valEmail").css({"color": "red",'font-size': '20px'});
+						$("#valEmail").css({"color": "red",'font-size': '1em'});
 						emailVal = false;
 					}
 					return emailVal;
@@ -180,7 +184,7 @@
 						$("#valNome").text("Por favor digite seu nome");
 						$("#valNome").css({
 							'color': 'red',
-							'font-size': '20px'
+							'font-size': '1em'
 						});
 						name = true;
 					}
@@ -192,7 +196,7 @@
 					if (textEmail =="" ){
 
 						$("#valEmail").text("Digite um email");
-						$("#valEmail").css({'color':'red','font-size':'20px'});
+						$("#valEmail").css({'color':'red','font-size':'1em'});
 						
 
 					}
@@ -200,17 +204,26 @@
 						$("#valText").text("Por favor digite uma mensagem");
 						$("#valText").css({
 							'color': 'red',
-							'font-size': '20px'
+							'font-size': '1em'
 						});
 						text = true;
+
 					}
 					else{
 						text = false;
 						$("#valText").text("");
 					}
 					if(emailVal==true && text==false && name == false){
-						$("#enviar").on("click", submit());
-					}
+						$("#thanks").html("<h3>Muito Obrigado<br>Pelo e-mail<h3>");
+						$("#thanks").css({
+							'color': '#03ad0e',
+							'font-size': '1.5em'
+						});
+						setTimeout(function(){
+							
+							$("#form_contato").submit();
+						},1500);}
+					
 					return false;
 					
 				});
@@ -220,28 +233,29 @@
 				
 
 			});
+			
 		</script>
 		<?php
 		ini_set('default_charset','UTF-8');
 
-		if (isset($_POST['send'])){
+		if (!empty($_POST)){
 			$name = $_POST['nome'];
 			$message = $_POST['message'];
 
 
 			$email_subject = "Novo email do site";
 			$email_body = "Voce recebeu um email do usuario $name.\n".
-			"A mensagem é:\n $message\n".
+			"A mensagem é:\n $message\n\n\n".
 
 
 		$to = "gabriel.m.baptista@gmail.com";//<== update the email address
 		
 		
 		$headers = "Content-Type: text/plain; charset=UTF-8";
-		$headers .= "from: moraesportfolio";
+		$headers .= "From: moraesportfolio";
 		$email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
 		if ($email) {
-			$headers .= "\r\nReply to: $email";
+			$headers .= "\r\nVindo de: $email";
 		}
 		
 		

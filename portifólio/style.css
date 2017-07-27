@@ -26,14 +26,16 @@ ul{
 	list-style-type: none;	
 }
 .back{
-	background-image:url("img/fundoback.jpg");
+	background-image:url("https://source.unsplash.com/random?water");
 	height: 150vh;
 	width: 100vw;
 	background-attachment: fixed;
 	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .fundo_header{
-	background-image: url("img/fundo.jpg");
+	background-image: url("https://source.unsplash.com/random?dark");
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100vw;
