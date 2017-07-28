@@ -116,7 +116,7 @@
 	<section class="modal" id="openModal">
 		<div class="modal-content">
 			<h2>Muito Obrigado pelo e-mail !!!<br></h2>
-			<button type="button" id="close" class="close">Fechar</button>
+			<button type="button" id="close" class="close submitHover">Fechar</button>
 
 		</div>
 
@@ -228,6 +228,10 @@
 							},500);
 
 						});
+						$(document).click(function(event) {
+							if(!$(event.target).closest('.modal-content').length) $("#form_contato").submit();
+							
+						});
 
 
 						
@@ -255,6 +259,9 @@
 			}, function() {
 				$(this).addClass('submitHover');
 			});
+
+			
+
 			$(".back").css('background-image','url("img/fogo.jpg")');
 			
 
