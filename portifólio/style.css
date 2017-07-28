@@ -1,3 +1,4 @@
+
 *{
 	margin: 0;
 	padding: 0;
@@ -26,24 +27,27 @@ ul{
 	list-style-type: none;	
 }
 .back{
-	background-image:url("https://source.unsplash.com/random?water");
+	background-color: #6e7075;
+	background-image:url("https://source.unsplash.com/category/technology");
+
 	height: 150vh;
 	width: 100vw;
-	background-attachment: fixed;
+	
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 .fundo_header{
-	background-image: url("https://source.unsplash.com/random?dark");
+	background-image: url("img/muro.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100vw;
 	height: 120vh;
-
-	background-attachment: fixed;
+	background-color: #6e7075;
+	
 	background-position: center;
 }
+
 .back, .header, .nav_bar, .Sobre_mim, .Formacao_pessoal,.mail,.container_contato,.skills ul,.learning,.form>form,#fundo_contato,.footer{
 	display: flex;
 	flex-direction: column;
@@ -269,10 +273,11 @@ a {
 .form-container{
 	width: 100vw;
 	height: 100vh;
-	background-image:  url("https://source.unsplash.com/random");
+	background-image:  url("img/gelo.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-attachment: fixed;
+	background-color: #6e7075;
+	
 
 	
 	
@@ -315,7 +320,7 @@ a {
 	
 
 }
-.form p>button[type="submit"]{
+.submit{
 	margin:10px 0;
 
 	border-radius: 3px;
@@ -330,12 +335,18 @@ a {
 	transition: all 0.3s ease-in-out;
 
 }
-.form p>button[type="submit"]:hover{
+.submitHover:hover{
 	cursor: pointer;
 	background-color: rgba(255, 255, 255, 0.3);
 	transform: scale(1.125);
 
 }
+.hover:hover{
+	color: #fff;
+	font-size: 22px;
+
+}
+
 .form p>input[type="text"]:hover, .form p>textarea:hover, .form p>input[type="email"]:hover{
 	cursor: text;
 	background-color: #ddd;
@@ -354,11 +365,52 @@ a {
 	color: #fff;
 	
 }
+.modal{
+	display: none ;
+	position: fixed; /* Stay in place */
+    z-index: 1;
+    justify-content: center;
+    align-items: center; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4);
+
+}
+.modal-content{
+	background-color: #111;
+    /* 15% from the top and centered */
+    padding: 20px;
+
+    color: #03ad0e;
+    border: 2px solid #888;
+    box-shadow: 5px 5px 5px #000;
+    max-width: 80%;
+    min-width: 50%;
+    width: auto;
+    min-height: 20%;
+    height:  auto;
+}
+.close{
+	padding: 10px;
+	clear: both;
+	left: 25%;
+	position: relative;
+	margin: 10px auto;
+	background-color: #1f2123;
+	color: #fff;
+	text-decoration: none;
+	width: 50%;
+	cursor: pointer;
+}
 .footer h3{
 	padding: 10px;
 	text-align: center;
 	color: #fff;
 }
+
 @media only screen and (min-width: 540px){
 	.Meu_contato ul{
 		display: flex;
@@ -441,6 +493,9 @@ a {
 	.skills li{
 		margin: 20px 20px;
 	}
+	.modal-content{
+
+	}
 	
 
 }
@@ -485,12 +540,4 @@ a {
 		margin-top: 65px;
 	}
 	
-}
-@media only screen and (min-width: 1024px) and (orientation: landscape){
-	a:hover{
-		color: #fff;
-		
-		font-size: 22px;
-	
-	}
 }
