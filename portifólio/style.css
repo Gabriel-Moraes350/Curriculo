@@ -120,6 +120,7 @@ a {
 	color: #a50404;
 	text-decoration: none;
 	transition: all .4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
 	cursor: pointer;
 
 
