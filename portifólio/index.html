@@ -35,23 +35,25 @@
 	<section id="Sobre" class="Sobre_mim">
 		<div class="container-sobre">
 			<h2>Sobre</h2>
-			<p>Nascido em Sorocaba, 18 anos.</p>
-			<p>Iniciante na área de TI, mas com muita vontade para aprender</p>
-			<p>Aprendendo a área de Desenvolvimento Web </p>
+			<p>Nascido em Sorocaba, 20 anos.</p>
+			<p>Desenvolvedor Web, com 2 anos de experiência</p>
+			<p>Entusiasta sobre microserviços e desenvolvimento mobile</p>
 		</div>
 	</section>
 	<div class="back ">
 		<section id="Formacao" class="Formacao_pessoal">
 			<div class="container-formacao">
-				<h2>Formação</h2>
+				<h2>Experiência</h2>
 				<ul>
-					<li><h3>Técnico em Mecatrônica</h3><p class="sub">Senai<br>(2015/2016)</p></li>
+					<li><h3>Inglês Avançado</h3><p class="sub">Curso Particular<br>2013/2017</p></li>
 
-					<li><h3>Inglês Avançado</h3><p class="sub">Curso Particular<br>(2013/2017)</p></li>
+					<li><h3>Cursando Análise e Desenvolvimento de Sistemas</h3><p class="sub">Fatec<br>Início em 01/17	</p></li>
 
-					<li><h3>Cursando Análise e Desenvolvimento de Sistemas</h3><p class="sub">Fatec<br>(Início em 01/17)</p></li>
+					<li><h3>Inside Estudios</h3><p class="sub">Desenvolvedor Web<br>01/18 - 06/18</p></li>
 
+					<li><h3>Melhor Escola</h3><p class="sub">Desenvolvedor Web<br>06/18 - 12/18</p></li>
 
+					<li><h3>GFT</h3><p class="sub">Desenvolvedor Java<br>01/19 - Atual</p></li>
 				</ul>
 			</div>
 		</section>
@@ -74,10 +76,10 @@
 		<h2>Aprendendo<br>...</h2>
 		<div class="skills">
 			<ul>
-				<li><img src="img/HTML5_logo.svg" alt="logo_Html"></li>
-				<li><img src="img/css3.svg" alt="logo_css3"></li>
-				<li><img src="img/Boostrap_logo.svg" alt="bootstrap_logo"></li>
-				<li><img src="img/JavaScript_logo.svg" alt="js_logo"></li>
+				<li><img src="img/angular-icon.svg" alt="logo Angular"></li>
+				<li><img src="img/react.svg" alt="logo React"></li>
+				<li><img src="img/spring.svg" alt="Logo Spring Cloud"></li>
+				<li><img src="img/docker.svg" alt="Logo Docker"></li>
 			</ul>
 		</div>
 
@@ -126,159 +128,7 @@
 		<h3>Gabriel Moraes Baptista</h3>
 	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-				//nav bar
-				var previousScroll = 0,
-				headerDistance = $('.nav').height();
-				$(window).scroll(function () {
-					var currentScroll = $(this).scrollTop();
-					if (currentScroll > headerDistance) {
-						if (currentScroll > previousScroll) {
-							$('.nav').slideUp('fast');
-						} else {
-							$('.nav').slideDown();
-						}
-					} else {
-						$('.nav').slideDown();
-					}
-					previousScroll = currentScroll;
-				});
-				//validation form
-
-				//email
-				function validateEmail(email) {
-					var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-					return re.test(email);
-				}
-				var emailVal = false;
-				function validate() {
-					
-					$("#valEmail").text("");
-					var email = $("#email").val();
-					if (validateEmail(email)) {
-						$("#valEmail").html( " Email válido :)");
-						$("#valEmail").css({"color": "#03ad0e",'font-size': '1em'});
-						emailVal = true;
-					} else {
-						$("#valEmail").html("\""+email+"\"  não é válido :( <br> Digite um email válido");
-						$("#valEmail").css({"color": "red",'font-size': '1em'});
-						emailVal = false;
-					}
-					return emailVal;
-				}
-				$("#email").on("input", validate);
-
-
-				//name
-				
-				var name = false;
-				var text = false;
-				$("#enviar").on("click", function(){
-					var textName = $("#nome").val();
-					var textArea = $("#textArea").val();
-					var textEmail = $("#email").val();
-					
-					var email = $("#valEmail").val();
-					if(textName == ""){
-						$("#valNome").text("Por favor digite seu nome");
-						$("#valNome").css({
-							'color': 'red',
-							'font-size': '1em'
-						});
-						name = true;
-					}
-					else{
-						name = false;
-						$("#valNome").text("");
-					}
-					
-					if (textEmail =="" ){
-
-						$("#valEmail").text("Digite um email");
-						$("#valEmail").css({'color':'red','font-size':'1em'});
-						
-
-					}
-					if(textArea == ""){
-						$("#valText").text("Por favor digite uma mensagem");
-						$("#valText").css({
-							'color': 'red',
-							'font-size': '1em'
-						});
-						text = true;
-
-					}
-					else{
-						text = false;
-						$("#valText").text("");
-					}
-					if(emailVal==true && text==false && name == false){
-						/*$("#thanks").html("<h3>Muito Obrigado<br>Pelo e-mail<h3>");
-						$("#thanks").css({
-							'color': '#03ad0e',
-							'font-size': '1.5em'
-						});*/
-						$("#openModal").css('display','flex');
-						$("#close").on('click',function(){
-							setTimeout(function(){
-
-								$("#form_contato").submit();
-							},500);
-
-						});
-						$(document).click(function(event) {
-							if(!$(event.target).closest('.modal-content').length) $("#form_contato").submit();
-							
-						});
-
-
-						
-						
-					}
-					
-					return false;
-					
-				});
-				
-				
-				
-
-			});
-		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-			$(".hover").hover(function() {
-				$(this).removeClass('hover');
-
-			}, function() {
-				$(this).addClass('hover');
-			});
-			$(".submitHover").hover(function() {
-				$(this).removeClass('submitHover');
-
-			}, function() {
-				$(this).addClass('submitHover');
-			});
-
-			
-
-			$(".back").css('background-image','url("img/fogo.jpg")');
-			
-
-
-
-
-		}
-		else{
-			
-			$(".fundo_header").css('background-image','url("https://source.unsplash.com/random?dark")');
-			$(".form-container").css('background-image', 'url("https://source.unsplash.com/random")');
-			$(".back").css('background-attachment', 'fixed');
-			$(".fundo_header").css('background-attachment', 'fixed');
-			$(".form-container").css('background-attachment', 'fixed');
-
-		}
-
-
+	<script type="text/javascript" src="index.js">
 	</script>
 </body>
 </html>
