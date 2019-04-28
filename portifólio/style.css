@@ -54,6 +54,7 @@ ul{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	z-index: 1;
 }
 .header{
 	width: 100%;
@@ -91,6 +92,7 @@ ul{
 	width: 100vw;
 	overflow: hidden;
 	height: auto;
+	z-index: 999;
 
 }
 
@@ -539,4 +541,13 @@ a {
 		margin-top: 65px;
 	}
 	
+}
+.rotate{
+	animation:rotate 3s  infinite;
+	animation-timing-function: cubic-bezier(1,0,.5,1);
+}
+
+@-webkit-keyframes rotate {
+    from { -webkit-transform: rotate(0deg) } 
+    to { -webkit-transform: rotate(360deg) } 
 }
